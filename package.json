@@ -1,0 +1,66 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "usage-hud",
+  "title": "Usage HUD",
+  "description": "See Claude, Codex, and Gemini usage limits, reset times, and confidence labels recorded by the Usage HUD menu-bar app.",
+  "icon": "extension-icon.png",
+  "author": "thaliabloom",
+  "platforms": [
+    "macOS"
+  ],
+  "categories": [
+    "Developer Tools",
+    "Productivity"
+  ],
+  "keywords": [
+    "claude",
+    "codex",
+    "gemini",
+    "usage",
+    "limits",
+    "rate limit",
+    "ai",
+    "quota"
+  ],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "show-usage-limits",
+      "title": "Show Usage Limits",
+      "subtitle": "Usage HUD",
+      "description": "Show the current session and weekly limits, reset times, and data freshness for each AI coding provider tracked by Usage HUD.",
+      "mode": "view"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "stateDirectory",
+      "title": "State Folder",
+      "description": "Folder that holds Usage HUD snapshots. Leave empty to use ~/.codex-usage-hud.",
+      "type": "directory",
+      "required": false
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^2.5.2",
+    "@raycast/utils": "^2.3.2"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^2.2.0",
+    "@types/node": "22.20.1",
+    "@types/react": "19.0.10",
+    "eslint": "^9.39.5",
+    "prettier": "^3.9.6",
+    "typescript": "^5.9.3"
+  },
+  "scripts": {
+    "build": "ray build -e dist -o ./dist",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "prepublishOnly": "echo \"\\n\\nIt seems like you are trying to publish the Raycast extension to npm.\\n\\nIf you did intend to publish it to npm, remove the \\`prepublishOnly\\` script and rerun \\`npm publish\\` again.\\nIf you wanted to publish it to the Raycast Store instead, use \\`npm run publish\\` instead.\\n\\n\" && exit 1",
+    "publish": "npx @raycast/api@latest publish",
+    "test": "node --test --experimental-strip-types \"src/**/*.test.ts\"",
+    "typecheck": "tsc --noEmit"
+  }
+}
